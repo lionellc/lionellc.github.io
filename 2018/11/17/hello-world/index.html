@@ -775,25 +775,23 @@
 
    <script type="text/javascript">
         var gitalk = new Gitalk({
-          clientID: '',
-          clientSecret: '',
+          clientID: '9a7dcd39bb05d12d01d5',
+          clientSecret: '20796e6ed771a1497115a7f8576bf85a19a1a288',
           repo: 'blog-comments',
           owner: 'lionel_lc@163.com',
           admin: ['lionel_lc@163.com'],
-          id: location.href,
-          labels: '',
+          id: location.pathname,
+          labels: 'gitalk',
           perPage: 15,
-          pagerDirection: '',
+          pagerDirection: 'last',
           createIssueManually: true,
-          distractionFreeMode: true
+          distractionFreeMode: false
         })
 
         gitalk.render('gitalk-container')
        </script>
 
 
-
-.gt-container a{border-bottom: none;}
 
   
 
