@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Hello Hexo]]></title>
     <url>%2F2018%2F11%2F17%2FHello-Hexo%2F</url>
-    <content type="text"><![CDATA[趁着女朋友生气离家出走(误会，已经解释清楚不愿意回家)，先上传一个。 本地hexo server上传hexo clean &amp;&amp; hexo g &amp;&amp; hexo d]]></content>
+    <content type="text"><![CDATA[趁着女朋友生气离家出走(误会，已经解释清楚不愿意回家)，先上传一个。 本地hexo server上传hexo clean &amp;&amp; hexo g &amp;&amp; hexo d Hexo-admin插件允许我们直接在本地页面上修改文章内容。npm i hexo-admin --save本地修改 http://localhost:4000/admin]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
