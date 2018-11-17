@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Q1:什么情况下会碰到跨域问题？有哪些解决方案     跨域问题是浏览器为了安全实施的同源策略导致的，同源策略限制了来自不同源的document、脚本，同源的意思就是两个URL的域名、协议、端口要完全相同。 script标签jsonp跨域、nginx反向代理、node.js中间件代理跨域、后端在头部信息设置安全域名、后端在服务器上设置cores。">
+<meta name="description" content="前端面试系列(一) Q1:什么情况下会碰到跨域问题？有哪些解决方案     跨域问题是浏览器为了安全实施的同源策略导致的，同源策略限制了来自不同源的document、脚本，同源的意思就是两个URL的域名、协议、端口要完全相同。 script标签jsonp跨域、nginx反向代理、node.js中间件代理跨域、后端在头部信息设置安全域名、后端在服务器上设置cores。">
 <meta name="keywords" content="javascript,前端面试系列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端面试系列(一)">
 <meta property="og:url" content="https://lionellc.github.io/2018/11/17/mianshi/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Q1:什么情况下会碰到跨域问题？有哪些解决方案     跨域问题是浏览器为了安全实施的同源策略导致的，同源策略限制了来自不同源的document、脚本，同源的意思就是两个URL的域名、协议、端口要完全相同。 script标签jsonp跨域、nginx反向代理、node.js中间件代理跨域、后端在头部信息设置安全域名、后端在服务器上设置cores。">
+<meta property="og:description" content="前端面试系列(一) Q1:什么情况下会碰到跨域问题？有哪些解决方案     跨域问题是浏览器为了安全实施的同源策略导致的，同源策略限制了来自不同源的document、脚本，同源的意思就是两个URL的域名、协议、端口要完全相同。 script标签jsonp跨域、nginx反向代理、node.js中间件代理跨域、后端在头部信息设置安全域名、后端在服务器上设置cores。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-17T14:01:54.848Z">
+<meta property="og:updated_time" content="2018-11-17T14:36:31.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试系列(一)">
-<meta name="twitter:description" content="Q1:什么情况下会碰到跨域问题？有哪些解决方案     跨域问题是浏览器为了安全实施的同源策略导致的，同源策略限制了来自不同源的document、脚本，同源的意思就是两个URL的域名、协议、端口要完全相同。 script标签jsonp跨域、nginx反向代理、node.js中间件代理跨域、后端在头部信息设置安全域名、后端在服务器上设置cores。">
+<meta name="twitter:description" content="前端面试系列(一) Q1:什么情况下会碰到跨域问题？有哪些解决方案     跨域问题是浏览器为了安全实施的同源策略导致的，同源策略限制了来自不同源的document、脚本，同源的意思就是两个URL的域名、协议、端口要完全相同。 script标签jsonp跨域、nginx反向代理、node.js中间件代理跨域、后端在头部信息设置安全域名、后端在服务器上设置cores。">
 
 
 
@@ -384,24 +384,22 @@
       
 
       
-        <blockquote>
+        <h1 id="前端面试系列-一"><a href="#前端面试系列-一" class="headerlink" title="前端面试系列(一)"></a>前端面试系列(一)</h1><blockquote>
 <p>Q1:什么情况下会碰到跨域问题？有哪些解决方案  </p>
 </blockquote>
 <ul>
 <li>跨域问题是浏览器为了安全实施的同源策略导致的，同源策略限制了来自不同源的<code>document</code>、<code>脚本</code>，同源的意思就是两个URL的域名、协议、端口要完全相同。</li>
-<li><p>script标签jsonp跨域、nginx反向代理、node.js中间件代理跨域、后端在头部信息设置安全域名、后端在服务器上设置cores。  </p>
-<a id="more"></a>
+<li>script标签jsonp跨域、nginx反向代理、node.js中间件代理跨域、后端在头部信息设置安全域名、后端在服务器上设置cores。    <a id="more"></a>
+</li>
+</ul>
 <blockquote>
 <p>Q2: 如何判断一个变量时对象还是数组？  </p>
 </blockquote>
-<p>判断数组和对象分别都有好几种方法，其中用<code>prototype.toString.call()</code>兼容性最好。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function is ObjArr(value) &#123;</span><br><span class="line">  if (Object.prototype.toString.call(value) === &quot;[Object Array]&quot;) &#123;</span><br><span class="line">    console.log(&quot;value是数组&quot;);</span><br><span class="line">  &#125; else if(Object.prototype.toString.call(value) === &quot;[Object Object]&quot;)&#123; // 这个方法兼容性好一点</span><br><span class="line">    console.log(&quot;value是对象&quot;);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    console.log(&quot;value不是对象也不是数组&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>ps:<strong>千万不能用typeof来判断对象和数组</strong>，因为这两种类型都会返回“object”。  </p>
+<p>  判断数组和对象分别都有好几种方法，其中用<code>prototype.toString.call()</code>兼容性最好。<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function is ObjArr(value) &#123;</span><br><span class="line">  if (Object.prototype.toString.call(value) === &quot;[Object Array]&quot;) &#123;</span><br><span class="line">    console.log(&quot;value是数组&quot;);</span><br><span class="line">  &#125; else if(Object.prototype.toString.call(value) === &quot;[Object Object]&quot;)&#123; // 这个方法兼容性好一点</span><br><span class="line">    console.log(&quot;value是对象&quot;);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    console.log(&quot;value不是对象也不是数组&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  ps:<strong>千万不能用typeof来判断对象和数组</strong>，因为这两种类型都会返回“object”。  </p>
 <blockquote>
 <p>Q3:定时器的执行顺序或机制。    </p>
 </blockquote>
-</li>
-</ul>
 <p>因为js是单线程的，浏览器遇到<code>setTimeout</code>或者<code>setInterval</code>会先执行完当前的代码块，在此之前会把定时器推入浏览器的待执行事件队列里面，等到浏览器执行完当前代码之后会看一下事件队列里面有没有任务，有的话才会执行定时器的代码。  </p>
 <blockquote>
 <p>Q4: html中title属性和alt属性的区别：</p>
@@ -606,6 +604,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/11/17/mianshi2/" rel="prev" title="前端面试系列(一)">
+                前端面试系列(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -658,8 +660,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -674,7 +685,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -719,6 +730,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前端面试系列-一"><span class="nav-number">1.</span> <span class="nav-text">前端面试系列(一)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
