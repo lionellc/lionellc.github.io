@@ -87,16 +87,16 @@
 <meta property="og:site_name" content="lionel博客">
 <meta property="og:description" content="本文来自：JavaScript深入之从原型到原型链 构造函数创建对象我们先使用构造函数创建一个对象：1 2 3 4 function Person() &amp;#123;&amp;#125; var person = new Person(); person.name = &amp;apos;Lionel&amp;apos;; console.log(person.name)  // Lionel  在这个列子中，Person">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://lionellc.github.io/2018/12/17/deepJs1/%22https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png%22">
-<meta property="og:image" content="https://lionellc.github.io/2018/12/17/deepJs1/%22https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype2.png%22">
-<meta property="og:image" content="https://lionellc.github.io/2018/12/17/deepJs1/%22https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype3.png%22">
-<meta property="og:image" content="https://lionellc.github.io/2018/12/17/deepJs1/%22https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype4.png%22">
-<meta property="og:image" content="https://lionellc.github.io/2018/12/17/deepJs1/%22https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png%22">
-<meta property="og:updated_time" content="2018-12-17T05:20:54.065Z">
+<meta property="og:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png">
+<meta property="og:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype2.png">
+<meta property="og:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype3.png">
+<meta property="og:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype4.png">
+<meta property="og:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png">
+<meta property="og:updated_time" content="2018-12-17T05:54:04.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入之从原型到原型链">
 <meta name="twitter:description" content="本文来自：JavaScript深入之从原型到原型链 构造函数创建对象我们先使用构造函数创建一个对象：1 2 3 4 function Person() &amp;#123;&amp;#125; var person = new Person(); person.name = &amp;apos;Lionel&amp;apos;; console.log(person.name)  // Lionel  在这个列子中，Person">
-<meta name="twitter:image" content="https://lionellc.github.io/2018/12/17/deepJs1/%22https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png%22">
+<meta name="twitter:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png">
 
 
 
@@ -405,7 +405,7 @@
 <span class="line">person.name = &apos;Lionel&apos;;</span>
 <span class="line">console.log(person.name)  // Lionel</span>
 </pre></td></tr></table></figure></p>
-<p>在这个列子中，Person就是一个构造函数，我们使用new创建了一个实例对象person。  很简单吧，接下来进入正题：</p>
+<p>在这个列子中，Person就是一个构造函数，我们使用new创建了一个实例对象person。  很简单吧，接下来进入正题：<br><a id="more"></a></p>
 <h2 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h2><p>每个函数都有一个<code>prototype</code>属性，就是我们经常在各种例子中看到的那个prototype，比如：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
@@ -423,7 +423,7 @@
 <p>那这个函数的<code>prototype</code>属性到底指向的是什么呢？是这个函数的原型吗？  </p>
 <p>其实，函数的<code>prototype</code>属性指向了一个对象，这个对象正是调用该构造函数而创建的的<strong>实例</strong>的原型，也就是这个例子中的person1和person2的原型。  </p>
 <p>那什么是原型呢？你可以这样理解：每一个JS对象(null除外)，在创建的时候就会与之关联另一对象，这个对象就是我们所说的原型，每一个对象都会从原型“继承”属性。  </p>
-<p>让我们用一张图标识构造函数和实例原型之间的关系：<br><img src="&quot;https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png&quot;" alt="Alt text"><br>在这张图中我们用Object.prototype表示实例原型。  </p>
+<p>让我们用一张图标识构造函数和实例原型之间的关系：<br><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png" alt="Alt text"><br>在这张图中我们用Object.prototype表示实例原型。  </p>
 <p>那么我们该怎么表示实例与实例原型，也就是person和Person.prototype之间的关系呢，这个时候我们就要讲到第二个属性：  </p>
 <h2 id="proto"><a href="#proto" class="headerlink" title="proto"></a><strong>proto</strong></h2><p>这是每一个JS对象(除了null)都具有的一个属性，叫<code>__proto__</code>,这个属性会指向该对象的原型。未来证明这一点，我们可以在调试台中输入：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
@@ -437,14 +437,14 @@
 <span class="line">var person = new Person()</span>
 <span class="line">console.log(person.__proto__ === Person.prototype) // true</span>
 </pre></td></tr></table></figure>
-<p>于是我们更新下关系图：<br><img src="&quot;https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype2.png&quot;" alt="Alt text"><br>既然实例对象和构造函数都可以指向原型，那么原型是否有属性指向构造函数或者实例呢？</p>
+<p>于是我们更新下关系图：<br><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype2.png" alt="Alt text"><br>既然实例对象和构造函数都可以指向原型，那么原型是否有属性指向构造函数或者实例呢？</p>
 <h2 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h2><p>指向实例倒是没有，因为一个构造函数可以生成多个实例，但是原型指向构造函数倒是有的，这就要讲到第三个属性：constructor，每个原型都有一个constructor属性指向关联的构造函数。  </p>
 <p>为了验证这一点，我们可以尝试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">function Person()&#123;&#125;</span>
 <span class="line">console.log(Person === Person.prototype.constructor); // true</span>
 </pre></td></tr></table></figure></p>
-<p>所以再更新下关系图：<br><img src="&quot;https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype3.png&quot;" alt="Alt text"><br>综上我们已经得出：  </p>
+<p>所以再更新下关系图：<br><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype3.png" alt="Alt text"><br>综上我们已经得出：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -486,13 +486,13 @@
 <span class="line">obj.name = &apos;Lionel&apos;</span>
 <span class="line">console.log(obj.name) // Lionel</span>
 </pre></td></tr></table></figure></p>
-<p>其实原型对象就是通过Object构造函数生成的，结合之前所讲，实例的<code>__proto__</code>指向构造函数的prototype，所以我们再更新下关系图：<br><img src="&quot;https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype4.png&quot;" alt="Alt text"></p>
+<p>其实原型对象就是通过Object构造函数生成的，结合之前所讲，实例的<code>__proto__</code>指向构造函数的prototype，所以我们再更新下关系图：<br><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype4.png" alt="Alt text"></p>
 <h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>那<code>Object.prototype</code>的原型呢？<br>null，我们可以打印：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">console.log(Object.prototype.__proto__ === null) // true</span>
 </pre></td></tr></table></figure></p>
 <p>然而null究竟代表了什么呢？<br>引用阮一峰老师的<a href="http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html" target="_blank" rel="noopener">《undefined与null的区别》</a>就是：</p>
 <blockquote>
-<p>null表示“没有对象”，即该处不应该有值。<br>所以<code>Object.prototype.__proto__</code>的值为null跟<code>Object.prototype</code>没有原型，其实表达了一个意思。所以查找属性的时候查到<code>Object.prototype</code>就可以停止查找了。<br>最后一张关系图也可以更新为：<br><img src="&quot;https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png&quot;" alt="Alt text"></p>
+<p>null表示“没有对象”，即该处不应该有值。<br>所以<code>Object.prototype.__proto__</code>的值为null跟<code>Object.prototype</code>没有原型，其实表达了一个意思。所以查找属性的时候查到<code>Object.prototype</code>就可以停止查找了。<br>最后一张关系图也可以更新为：<br><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png" alt="Alt text"></p>
 </blockquote>
 <p>顺便还要说一下，图中由相互关联的原型组成的链状结构就是原型链，也就是蓝色的这条线。</p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>最后，补充三点大家可能不会注意的地方：  </p>
